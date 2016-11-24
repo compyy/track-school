@@ -1,0 +1,31 @@
+{
+  "name": "track-school",
+  "version": "0.0.1",
+  "description": "Detect Beacons in different location of school and upload it to the server.  Built using nodejs",
+  "private": true,
+  "author": "ManaraLabs, Pakistan",
+  "contributors": [
+    {
+      "name": "Yasir Ashfaque",
+      "email": "@gmail.com"
+    },
+    {
+      "name": "Mohammad Rizwan",
+      "email": "@gmail.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/compyy/track-school.git"
+  },
+  "license": "MIT",
+  "keywords": [
+    "track-school"
+  ],
+  "scripts": {},
+  "dependencies": {
+    "bleacon": "^0.5.1",
+    "request": "^2.79.1",
+    "network": "^0.1.3",
+  }
+}
