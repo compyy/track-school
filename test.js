@@ -4,25 +4,40 @@ var request = require('request');
 //require('request-debug')(request);
 
 
-var serverIP = "192.168.1.242";
+var serverIP = "www.manaralabs.com";
 var serverPort = "8080";
 var serverAuth = "admin:changeit";
 var serverDB = "/school/gateway";
-var path = "http://" + serverAuth + "@" + serverIP + ":" + serverPort + serverDB;
-var gateway = "Entrance";
+//var path = "http://" + serverAuth + "@" + serverIP + ":" + serverPort + serverDB;
+var path = "http://manaralabs.com/ses/addAndroidLog.php";
+var beacon_gateway = "Admin Office";
 
 //Discover Beacon
 students.on('discover', function (students) {
     var timems = Date.now();
     var time = Date();
-    var uuid = students.uuid;
-    var major = students.major;
-    var minor = students.minor;
-    var data = {"Gateway": gateway, "uuid": uuid, "major": major, "minor": minor, "time": time, "timems": timems};
-    startPostingData(data);
-    //console.log(JSON.stringify(data));
-});
+    var beacon_uuid = students.uuid;
+    var beacon_major = students.major;
+    var beacon_minor = students.minor;
+    var beacon_distance = students.accuracy;
+    //var data = {"Gateway": gateway, "uuid": uuid, "major": major, "minor": minor, "time": time, "timems": timems};
+//    var data = {"beacon_major":major,"beacon_minor":minor,"beacon_uuid":timems};
 
+    insertBeaconPHP(beacon_major,beacon_minor,beacon_gateway,beacon_distance);    
+	//startPostingData(data);
+   console.log(JSON.stringify(students));
+});
+var insertBeaconPHP = function (beacon_major,beacon_minor,beacon_gateway,beacon_distance){
+  path = "http://www.manaralabs.com/ses/addAndroidLog.php?beacon_major="+beacon_major+"&beacon_minor="+beacon_minor+"&beacon_distance="+beacon_distance+"&beacon_gateway="+beacon_gateway;
+  request.post(path,
+        {json: true, body: null, timeout: 1500},
+        function (err, res, body) {
+            
+            
+
+        }
+    );
+};
 
 //posting Data to Remote Server
 var startPostingData = function (data) {
