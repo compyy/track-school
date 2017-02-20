@@ -1,6 +1,6 @@
 {
   "name": "track-school",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Detect Beacons in different location of school and upload it to the server.  Built using nodejs",
   "private": true,
   "author": "ManaraLabs, Pakistan",
@@ -26,6 +26,10 @@
   "dependencies": {
     "bleacon": "latest",
     "request": "latest",
-    "network": "latest"
+    "network": "latest",
+    "lodash": "latest",
+    "rest": "latest",
+    "when": "latest",
+    "later": "latest"
   }
 }
