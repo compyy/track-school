@@ -4,6 +4,7 @@ var request = require('request');
 require('request-debug')(request);
 
 
+<<<<<<< HEAD
 var serverIP = www.manaralabs.com;
 var serverPort = 8080;
 var serverAuth = adminchangeit;
@@ -11,6 +12,15 @@ var serverDB = schoolgateway;
 var path = http + serverAuth + @ + serverIP +  + serverPort + serverDB;
 var path = httpmanaralabs.comsesaddAndroidLog.php;
 var beacon_gateway = Admin Office;
+=======
+var serverIP = "www.manaralabs.com";
+var serverPort = "8080";
+var serverAuth = "admin:changeit";
+var serverDB = "/school/gateway";
+//var path = "http://" + serverAuth + "@" + serverIP + ":" + serverPort + serverDB;
+var path = "http://manaralabs.com/ses/addAndroidLog.php";
+var beacon_gateway = "Admin Office";
+>>>>>>> origin/master
 
 Discover Beacon
 students.on('discover', function (students) {
@@ -20,6 +30,7 @@ students.on('discover', function (students) {
     var beacon_major = students.major;
     var beacon_minor = students.minor;
     var beacon_distance = students.accuracy;
+<<<<<<< HEAD
     var data = {Gateway gateway, uuid uuid, major major, minor minor, time time, timems timems};
     var data = {beacon_majormajor,beacon_minorminor,beacon_uuidtimems};
 
@@ -31,6 +42,19 @@ var insertBeaconPHP = function (beacon_major,beacon_minor,beacon_gateway,beacon_
   path = httpwww.manaralabs.comsesaddAndroidLog.phpbeacon_major=+beacon_major+&beacon_minor=+beacon_minor+&beacon_distance=+beacon_distance+&beacon_gateway=+beacon_gateway;
   request.post(path,
         {json true, body null, timeout 1500},
+=======
+    //var data = {"Gateway": gateway, "uuid": uuid, "major": major, "minor": minor, "time": time, "timems": timems};
+//    var data = {"beacon_major":major,"beacon_minor":minor,"beacon_uuid":timems};
+
+    insertBeaconPHP(beacon_major,beacon_minor,beacon_gateway,beacon_distance);    
+	//startPostingData(data);
+   console.log(JSON.stringify(students));
+});
+var insertBeaconPHP = function (beacon_major,beacon_minor,beacon_gateway,beacon_distance){
+  path = "http://www.manaralabs.com/ses/addAndroidLog.php?beacon_major="+beacon_major+"&beacon_minor="+beacon_minor+"&beacon_distance="+beacon_distance+"&beacon_gateway="+beacon_gateway;
+  request.post(path,
+        {json: true, body: null, timeout: 1500},
+>>>>>>> origin/master
         function (err, res, body) {
             
             
