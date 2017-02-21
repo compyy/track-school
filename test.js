@@ -28,11 +28,11 @@ students.on('discover', function (students) {
     console.log(JSON.stringify(students));
 });
 var insertBeaconPHP = function (beacon_major, beacon_minor, beacon_gateway, beacon_distance) {
-    path = "http://www.manaralabs.com/ses/addAndroidLog.php?beacon_major=" + beacon_major + "&beacon_minor=" + beacon_minor + "&beacon_distance=" + beacon_distance + "&beacon_gateway=" + beacon_gateway;
+    path = "http://192.168.1.242/ses/addAndroidLog.php?beacon_major=" + beacon_major + "&beacon_minor=" + beacon_minor + "&beacon_distance=" + beacon_distance + "&beacon_gateway=" + beacon_gateway;
     request.post(path,
         {json: true, body: null, timeout: 1500},
         function (err, res, body) {
-
+            console.log('REQUEST RESULTS:', err, res, body);
 
         }
     );
